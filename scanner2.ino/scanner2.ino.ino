@@ -9,7 +9,7 @@
 int ir_value = 0;      //variable for the IR reading
 int panpos = 0;        //variable for storing position of the pan servo
 String result = "";    //string to send to the computer
-const byte IR_PIN = A1; //pin of the IR input
+const byte IR_PIN = A0; //pin of the IR input
 byte cmd_id = 0;
 int read1 = 0;
 int read2 = 0;
@@ -52,13 +52,13 @@ void scanPan() {
     panservo.write(panpos);              // tell servo to go to position in variable 'pos'
     delay(200);                       // waits 15ms for the servo to reach the position
     read1 = analogRead(IR_PIN);
-    delay(100);
+    delay(50);
     read2 = analogRead(IR_PIN);
-    delay(100);
+    delay(50);
     read3 = analogRead(IR_PIN);
-    delay(100);
+    delay(50);
     read4 = analogRead(IR_PIN);
-    delay(100);
+    delay(50);
     read5 = analogRead(IR_PIN);
     result = result + panpos + " " + read1 + " " + read2 + " " + read3 + " " + read4 + " " + read5;
     Serial.println(result);
